@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;tn.ssbe.demo&apos; to &apos;tn.ssbe.tn.SpringBootWork&apos;&#x0D;&#x0A;- Original project: &apos;SpringBootWork&apos;&#x0D;&#x0A;- Original element: &apos;SpringBootWork/src/main/java/tn.ssbe.demo&apos;&#x0D;&#x0A;- Renamed element: &apos;SpringBootWork/src/main/java/tn.ssbe.tn.SpringBootWork&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;tn.ssbe.demo&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;tn.ssbe.demo" name="tn.ssbe.tn.SpringBootWork" qualified="false" references="true" stamp="1690646220884" textual="false" version="1.0"/>
-</session>

@@ -1,0 +1,16 @@
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Repository\ICandidatureRepository.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\entities\User.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\InterUserService.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Repository\IUserRepository.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\CandidatureServiceImpl.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\InterCandidatureService.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Repository\ICvRepository.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\SpringBootWorkApplication.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Controller\CvController.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Controller\CandidatureController.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Controller\UserController.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\entities\Candidature.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\CVServiceImpl.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\entities\CV.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\UserServiceImpl.java
+H:\SpringBootWork\SpringBootWork\src\main\java\tn\ssbe\tn\SpringBootWork\Services\InterCvService.java

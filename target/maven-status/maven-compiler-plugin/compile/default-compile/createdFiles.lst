@@ -1,0 +1,16 @@
+tn\ssbe\tn\SpringBootWork\SpringBootWorkApplication.class
+tn\ssbe\tn\SpringBootWork\Controller\CvController.class
+tn\ssbe\tn\SpringBootWork\Services\InterCandidatureService.class
+tn\ssbe\tn\SpringBootWork\Services\InterUserService.class
+tn\ssbe\tn\SpringBootWork\Repository\IUserRepository.class
+tn\ssbe\tn\SpringBootWork\Services\InterCvService.class
+tn\ssbe\tn\SpringBootWork\Services\CandidatureServiceImpl.class
+tn\ssbe\tn\SpringBootWork\entities\Candidature.class
+tn\ssbe\tn\SpringBootWork\entities\CV.class
+tn\ssbe\tn\SpringBootWork\Controller\CandidatureController.class
+tn\ssbe\tn\SpringBootWork\Services\CVServiceImpl.class
+tn\ssbe\tn\SpringBootWork\entities\User.class
+tn\ssbe\tn\SpringBootWork\Services\UserServiceImpl.class
+tn\ssbe\tn\SpringBootWork\Controller\UserController.class
+tn\ssbe\tn\SpringBootWork\Repository\ICvRepository.class
+tn\ssbe\tn\SpringBootWork\Repository\ICandidatureRepository.class
