@@ -1,0 +1,151 @@
+package tn.ssbe.tn.SpringBootWork.Services;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import tn.ssbe.tn.SpringBootWork.Repository.ICandidatReposittory;
+//import tn.ssbe.tn.SpringBootWork.Repository.IRoleRepository;
+import tn.ssbe.tn.SpringBootWork.Repository.IUserRepository;
+import tn.ssbe.tn.SpringBootWork.entities.Candidat;
+//import tn.ssbe.tn.SpringBootWork.entities.Role;
+import tn.ssbe.tn.SpringBootWork.entities.User;
+@Service
+public class UserServiceImpl implements InterUserService{
+	@Autowired
+	IUserRepository userRep;
+	//IRoleRepository roleRep;
+	@Autowired
+	ICandidatReposittory candidatRep;
+
+	@Override
+	public User addUser(User user) {
+		// TODO Auto-generated method stub
+		return userRep.save(user);
+	}
+
+	@Override
+	public List<User> addListUser(List<User> Listuser) {
+		// TODO Auto-generated method stub
+		return userRep.saveAll(Listuser);
+	}
+
+	@Override
+	public String adduserConfPw(User user) {
+		// TODO Auto-generated method stub
+		String ch="";
+		
+		if(!user.getPassword().equals(user.getConfirmpassword()))
+			ch="confirm password is wrong please check it !!!";
+		else {
+				userRep.save(user);
+				ch="user added successfuly !!";
+		}
+		return ch;
+	}
+
+	@Override
+	public User updateUser(User user, Long iduser) {
+		// TODO Auto-generated method stub
+		User usr=userRep.findById(iduser).get();
+		
+		usr.setNom(user.getNom());
+		usr.setPrenom(user.getPrenom());
+		usr.setEmail(user.getEmail());
+		usr.setPassword(user.getPassword());
+		usr.setConfirmpassword(user.getConfirmpassword());
+		usr.setTelephone(user.getTelephone());
+		usr.setAdresse(user.getAdresse());
+		
+		return userRep.save(usr);
+	}
+
+	@Override
+	public String deleteuser(long iduser) {
+		// TODO Auto-generated method stub
+		
+		String ch="";
+		
+		userRep.deleteById(iduser);
+		ch="user successfuly deleted !!";
+		return ch;
+	}
+
+	@Override
+	public List<User> getALLUsers() {
+		// TODO Auto-generated method stub
+		return userRep.findAll();
+	}
+
+	@Override
+	public Optional<User> findByUserId(long iduser) {
+		// TODO Auto-generated method stub
+		return userRep.findById(iduser);
+		}
+
+	@Override
+	public Optional<User> findByEmail(String email, String password) {
+		// TODO Auto-generated method stub
+		Optional<User> user = userRep.findByEmail(email);
+	       if (user.isPresent() && user.get().getPassword().equals(password)) {
+	           return user;
+	        }
+			return Optional.empty();
+		
+	}
+
+	@Transactional
+	public User saveUserWithCandidat(User user, Candidat candidat) {
+		// TODO Auto-generated method stub
+		
+		User savedUser = userRep.save(user);
+
+        // Associez le candidat à l'utilisateur et enregistrez-le
+        candidat.setUser(savedUser);
+        candidatRep.save(candidat);
+        return savedUser;
+		}
+
+	@Override
+	public User saveUser(User user) {
+		// TODO Auto-generated method stub
+		return userRep.save(user);
+	}
+
+	@Transactional
+	public void deleteUserAndCandidat(Long iduser) {
+		// TODO Auto-generated method stub
+		
+		 Optional<User> userOptional = userRep.findById(iduser);
+	        if (userOptional.isPresent()) {
+	            User user = userOptional.get();
+	            Optional<Candidat> candidatOptional = candidatRep.findByUser(user);
+	            candidatOptional.ifPresent(candidat -> {
+	                candidatRep.delete(candidat);
+	            });
+	            userRep.delete(user);
+	        } else {
+	            throw new RuntimeException("Utilisateur non trouvé avec l'ID : " + iduser);
+	        }
+	    }
+		
+
+	public User createUser(User user) {
+        // Vérification si l'utilisateur existe déjà dans la base de données
+        if (userRep.findByUserName(user.getUsername()) != null) {
+            throw new RuntimeException("Username already exists");
+        }
+        
+        // Autres vérifications si nécessaires...
+
+        // Enregistrement de l'utilisateur dans la base de données
+        return userRep.save(user);
+    }
+
+
+}

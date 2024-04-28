@@ -1,0 +1,31 @@
+package tn.ssbe.tn.SpringBootWork.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import tn.ssbe.tn.SpringBootWork.Services.RecruteurServiceImpl;
+import tn.ssbe.tn.SpringBootWork.entities.Recruteur;
+
+@RestController
+public class RecruteurController {
+	@Autowired
+	RecruteurServiceImpl recrutService;
+	
+	@PostMapping(value = "/addRecruteur")
+	public Recruteur addRecruteur(@RequestBody Recruteur recruteur) {
+		//TODO: process POST request
+		
+		return recrutService.addRecruteur(recruteur);
+	}
+
+	@DeleteMapping(value = "/deleteRecrt/{idRect}")
+	public void deleteRecrt(@PathVariable Long idRect)
+
+	{
+		 recrutService.deleteRecruteur(idRect);
+	}
+}

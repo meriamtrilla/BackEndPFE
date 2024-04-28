@@ -1,0 +1,75 @@
+package tn.ssbe.tn.SpringBootWork.Controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import tn.ssbe.tn.SpringBootWork.Services.InterOffreEmpService;
+import tn.ssbe.tn.SpringBootWork.entities.OffreEmploi;
+
+
+@RestController
+public class OffreEmpController {
+	
+	@Autowired
+	InterOffreEmpService offreEmpServ;
+	
+	@PostMapping(value = "/addOffreEmploi")
+	public OffreEmploi addOffreEmploi(@RequestBody OffreEmploi offreEmploi )
+	{
+	
+		return offreEmpServ.addOffreEmp(offreEmploi);
+	}
+	
+	/*@PostMapping(value = "/addOffEmploi/{idEntrep}")
+	public OffreEmploi addOffEmploi(@RequestBody OffreEmploi offreEmploi , @PathVariable Long idEntrep )
+	{
+	
+		return offreEmpServ.addOffreEmploi(offreEmploi, idEntrep);
+	}*/
+	
+	@GetMapping(value = "/getOffreEmpWID/{idOffreEmp}")
+	public Optional<OffreEmploi> getOffreEmpWID(@PathVariable Long idOffreEmp)
+	{
+		return offreEmpServ.findById(idOffreEmp);
+	}
+	
+	 /*@GetMapping("/getOffreWEntrp/{idEntrep}")
+	 public List<OffreEmploi> getCandWEntrp(@PathVariable Long idEntrep)
+	 {
+		
+		return offreEmpServ.findByentreprise(idEntrep);
+		 
+	 }*/
+	 
+	 @DeleteMapping("/DeleteOffEmp/{idOffreEmp}")
+	    public void deleteOffreEmp(@PathVariable Long idOffreEmp ) 
+		{
+	        offreEmpServ.deleteOffreEmp(idOffreEmp);
+	    }
+	 
+
+	 @GetMapping("/getAllOffresEmp")
+	    public List<OffreEmploi> getAllOffresEmploi() {
+	        return offreEmpServ.getAllOffresEmploi();
+	    }
+	
+	 @PutMapping("/updateOffreEmp")
+	    public OffreEmploi updateOffreEmploi(@RequestBody OffreEmploi offreEmploi) {
+	        return offreEmpServ.updateOffreEmploi(offreEmploi);
+	    } 
+	 
+	 @GetMapping("/getOffresEmpByRectId/{idRect}")
+	    public List<OffreEmploi> getOffresEmploiByRecruteurId(@PathVariable long idRect) {
+	        return offreEmpServ.getOffresEmploiByRecruteurId(idRect);
+	  }
+
+}
